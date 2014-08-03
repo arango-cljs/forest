@@ -12,6 +12,7 @@
 
 (def foxx-auth (js/require "org/arangodb/foxx/authentication"))
 (def arango-is (js/require "org/arangodb/is"))
+(def db (.-db (js/require "org/arangodb")))
 (def errors (.-errors internal))
 (def Sessions (.-Sessions foxx-auth))
 (def Users (.-Users foxx-auth))
