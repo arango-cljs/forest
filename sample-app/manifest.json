@@ -1,0 +1,9 @@
+{
+    "name": "hello-cljs",
+    "version": "0.0.1",
+    "author": "me and myself",
+    "files": {"index.html": "index.html"},
+    "controllers": {
+        "/": "app.js"
+    }
+}
