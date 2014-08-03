@@ -1,6 +1,6 @@
 (ns foxx-cljs.arango
   (:refer-clojure :exclude [print])
-  (:require [foxx-cljs.core :refer [*url-prefix*]]))
+  (:require [foxx-cljs.route :refer [*url-prefix*]]))
 
 (def ^:private logger (js/require "console"))
 
