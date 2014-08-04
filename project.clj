@@ -38,7 +38,7 @@
                                     :rules :cljs}]}
 
                    :aliases {"cleantest" ["do" "clean," "cljx" "once," "test," "cljsbuild" "test"]
-                             "deploy" ["do" "clean," "cljx" "once," "deploy" "clojars"]}
+                             "deploy" ["do" "clean," "cljx" "once," "push"]}
 
                    :cljsbuild {:test-commands {"phantom" ["phantomjs" :runner "target/testable.js"]
                                                "node" ["node" :node-runner "target/testable.js"]}
