@@ -261,8 +261,12 @@
          (FoxxRepository. (RepoType. repo-coll) schema)
          (log (str "Collection " repo " does not exist!"))))))
 
-(defn create-collection! [coll-name]
+(defn create-collection!
+  "Creates a new collection with given name for current application context.
+Returns true if created successfully. Otherwise returns nil."
+  [coll-name]
   (let [collection (.collectionName js/applicationContext coll-name)]
     (if (._collection db collection)
       (log (str "Collection " coll-name " already exists."))
-      (._create db collection))))
+      (do (._create db collection)
+          true))))
