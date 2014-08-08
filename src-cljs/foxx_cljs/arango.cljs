@@ -10,6 +10,35 @@
 
 (defn print [& data] (.print internal (pr-str data)))
 
+(def ^:private fs (js/require "fs"))
+
+(defn exist? [path]
+  (.exists fs path))
+
+(defn directory? [path]
+  (.isDirectory fs path))
+
+(defn file? [path]
+  (.isFile fs path))
+
+(defn ls [path]
+  (.list fs path))
+
+(defn ls-r [path]
+  (.listTree fs path))
+
+(defn mv [source dest]
+  (.move fs source dest))
+
+(defn rm [path]
+  (.remove fs path))
+
+(defn spit [filename content]
+  (.write fs filename content))
+
+(defn slurp [filename]
+  (.read fs filename))
+
 (def foxx-auth (js/require "org/arangodb/foxx/authentication"))
 (def arango-is (js/require "org/arangodb/is"))
 (def db (.-db (js/require "org/arangodb")))
