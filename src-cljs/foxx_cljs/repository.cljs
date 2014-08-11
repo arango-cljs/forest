@@ -19,8 +19,7 @@
   (first-example [this example]
     "Returns the first entry that matches the given example.")
 
-  (all [this])
-  (all [this options]
+  (all [this] [this options]
     "Returns a vector of entries that matches the given example.
   You can provide both a skip and a limit value.
   Parameters:
@@ -74,8 +73,8 @@
   key: key to query.
   left: lower bound of the value range (inclusive).
   right: upper bound of the value range (exclusive).")
-  (near [this lat lang])
-  (near [this lat lang options]
+
+  (near [this lat lang] [this lat lang options]
     "Finds entries near the coordinate (latitude, longitude). The returned vector
   is sorted by distance with the nearest entry coming first.
 
@@ -93,8 +92,8 @@
       coordinate and the entry. If the value is a string, that value will be
       used as the key name, otherwise the name defaults to :distance.
       limit (optional): number of entries to return. Defaults to 100.")
-  (within [this lat lang radius])
-  (within [this lat lang radius options]
+
+  (within [this lat lang radius] [this lat lang radius options]
     "Finds entries within the distance radius from the coordinate
   (latitude, longitude). The returned vector is sorted by distance with the nearest
   entry coming first.
@@ -115,8 +114,7 @@
     key name, otherwise the name defaults to :distance.
     limit (optional): number of entries to return. Defaults to 100.")
 
-  (fulltext [this key text])
-  (fulltext [this key text limit]
+  (fulltext [this key text] [this key text limit]
     "Returns all entries whose key value matches the search query text.
 
   In order to use the fulltext method, a fulltext index must be defined
