@@ -8,7 +8,7 @@
                  [org.clojure/core.async "0.1.303.0-886421-alpha"]
                  [prismatic/schema "0.2.5"]
                  [org.clojure/core.match "0.2.1"]]
-  :source-paths ["src/clj" "target/classes"]
+  :source-paths ["src-cljs" "src/cljs" "src/clj" "target/classes"]
   :test-paths ["target/test-classes"]
   :jar-exclusions [#"\.cljx" #"sample-app"]
   :codox {:writer codox-md.writer/write-docs}
