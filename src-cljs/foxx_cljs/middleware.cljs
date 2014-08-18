@@ -14,12 +14,16 @@
                               (aget "content-type"))]
     (seq (re-find #"^application/(vnd.+)?edn" content-type))))
 
+;; TODO: invalid edn?
+(defn read-string-safely [s]
+  (when (and s (string? s) (seq s))
+    (read-string s)))
+
 (defmiddleware wrap-edn []
   [req res]
   (when (edn-request? req)
     (->> (.rawBody req)
-         ;; TODO: what about empty rawBody? invalid edn?
-         read-string
+         read-string-safely
          (aset req "ednParameters"))))
 
 (defn wrap-format [routes & extensions]
