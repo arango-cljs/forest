@@ -51,6 +51,12 @@
    {:status status
     :headers {"Content-Type" "application/json"}
     :body (.stringify js/JSON body)}))
+
+#+cljs
+(defn json
+  ([body] (json* 200 (cljs->js body)))
+  ([status body]
+   (json* 200 (cljs->js body))))
 ;; --------
 
 #+clj
