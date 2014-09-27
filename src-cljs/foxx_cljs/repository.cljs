@@ -268,3 +268,13 @@ Returns true if created successfully. Otherwise returns nil."
       (log (str "Collection " coll-name " already exists."))
       (do (._create db collection)
           true))))
+
+(defn drop-collection!
+  "Deletes a new collection with given name for current application context.
+Returns true if deleted successfully. Otherwise returns nil."
+  [coll-name]
+  (let [collection (.collectionName js/applicationContext coll-name)]
+    (if (._collection db collection)
+      (do (._drop db collection)
+          true)
+      (log (str "Collection " coll-name " does not exist.")))))
