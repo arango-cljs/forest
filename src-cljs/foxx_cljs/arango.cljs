@@ -33,11 +33,35 @@
 (defn rm [path]
   (.remove fs path))
 
+(defn rmdir [directory]
+  (.removeDirectory fs directory))
+
+(defn rm-r [directory]
+  (.removeDirectoryRecursive fs diretory))
+
 (defn spit [filename content]
   (.write fs filename content))
 
 (defn slurp [filename]
   (.read fs filename))
+
+(defn absolute-path [relative-path]
+  (.makeAbsolute fs relative-path))
+
+(defn normalize-path [path]
+  (.normalize fs path))
+
+(defn join-paths [& paths]
+  (apply (.-join fs) paths))
+
+(defn size [path]
+  (.size fs path))
+
+(defn mkdir [path]
+  (.makeDirectory fs path))
+
+(defn mkdir-p [path]
+  (.makeDirectoryRecursive fs path))
 
 (def foxx-auth (js/require "org/arangodb/foxx/authentication"))
 (def arango-is (js/require "org/arangodb/is"))
