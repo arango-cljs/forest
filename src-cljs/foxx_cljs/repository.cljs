@@ -278,3 +278,14 @@ Returns true if deleted successfully. Otherwise returns nil."
       (do (._drop db collection)
           true)
       (log (str "Collection " coll-name " does not exist.")))))
+
+(defn truncate-collection!
+  "Truncates a collection with given name for current application context,
+  removing all documents but keeping all its indexes.
+  Returns true if deleted successfully. Otherwise returns nil."
+  [coll-name]
+  (let [collection (.collectionName js/applicationContext coll-name)]
+    (if (._collection db collection)
+      (do (._truncate db collection)
+          true)
+      (log (str "Collection " coll-name " does not exist.")))))
