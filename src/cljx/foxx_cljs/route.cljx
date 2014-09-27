@@ -43,6 +43,14 @@
    {:status status
     :headers {"Content-Type" "application/edn"}
     :body (pr-str body)}))
+
+#+cljs
+(defn json*
+  ([body] (json* 200 body))
+  ([status body]
+   {:status status
+    :headers {"Content-Type" "application/json"}
+    :body (.stringify js/JSON body)}))
 ;; --------
 
 #+clj
