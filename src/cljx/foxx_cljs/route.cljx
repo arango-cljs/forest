@@ -54,9 +54,9 @@
 
 #+cljs
 (defn json
-  ([body] (json* 200 (cljs->js body)))
+  ([body] (json* 200 (clj->js body)))
   ([status body]
-   (json* 200 (cljs->js body))))
+   (json* 200 (clj->js body))))
 ;; --------
 
 #+clj
