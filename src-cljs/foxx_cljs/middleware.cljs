@@ -1,6 +1,6 @@
 (ns foxx-cljs.middleware
   (:require [foxx-cljs.arango
-             :refer [Foxx foxx-auth arango-is errors FormatMiddleware
+             :refer [Foxx foxx-auth arango-is errors FormatMiddleware log
                      Sessions Users CookieAuthentication Authentication]]
             [cljs.reader :refer [read-string]]
             [foxx-cljs.route :refer [edn response] :as core]
