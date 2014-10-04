@@ -14,10 +14,11 @@
                               (aget "content-type"))]
     (seq (re-find #"^application/(vnd.+)?edn" content-type))))
 
-;; TODO: invalid edn?
 (defn read-string-safely [s]
   (when (and s (string? s) (seq s))
-    (read-string s)))
+    (try (read-string s)
+         (catch :default e
+           (log "Invalid edn body" s)))))
 
 (defmiddleware wrap-edn []
   [req res]
