@@ -37,7 +37,7 @@
   (.removeDirectory fs directory))
 
 (defn rm-r [directory]
-  (.removeDirectoryRecursive fs diretory))
+  (.removeDirectoryRecursive fs directory))
 
 (defn spit [filename content]
   (.write fs filename content))
