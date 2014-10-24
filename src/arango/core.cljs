@@ -14,8 +14,6 @@
 
 (def Foxx (js/require "org/arangodb/foxx"))
 
-(def FormatMiddleware (.-FormatMiddleware Foxx))
-
 (def Controller (.-Controller Foxx))
 
 (defn start [routes & {:keys [url-prefix]}]
