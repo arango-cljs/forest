@@ -1,56 +1,38 @@
-(defproject arango-cljs "0.1.0-SNAPSHOT"
-  :description "Utitlities to write ArangoDB/Foxx app in Clojurescript"
-  :url "http://github.com/arango-cljs/arango-cljs"
+(defproject arango-cljs/forest "0.2.0"
+  ;; When version changes, remember to change :output-dir and :src-dir-uri in :codox too
+  :description "Forest - a cozy home for (ArangoDB) Foxx applications.
+  Write scalable, database-ready APIs and apps in Clojurescript with ease."
+  :url "http://github.com/arango-cljs/forest"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.6.0"]
-                 [org.clojure/clojurescript "0.0-2268"]
+                 [org.clojure/clojurescript "0.0-2371"]
                  [org.clojure/core.async "0.1.303.0-886421-alpha"]
-                 [prismatic/schema "0.2.5"]
-                 [org.clojure/core.match "0.2.1"]]
-  :source-paths ["src-cljs" "src/cljs" "src/clj" "target/classes"]
-  :test-paths ["target/test-classes"]
-  :jar-exclusions [#"\.cljx" #"sample-app"]
-  :codox {:writer codox-md.writer/write-docs}
-  :plugins [[codox "0.6.4"]]
-  :hooks [cljx.hooks]
-  :profiles {:dev {:dependencies [[org.clojure/clojurescript "0.0-2227"]
-                                  [com.cemerick/clojurescript.test "0.3.1"]
+                 [prismatic/schema "0.3.1"]]
+  :jar-exclusions [#"sample-app"]
+  :profiles {:dev {:dependencies [[com.cemerick/clojurescript.test "0.3.1"]
                                   [codox-md "0.2.0" :exclusions [org.clojure/clojure]]]
-                   :plugins [[com.keminglabs/cljx "0.4.0"]
+                   :plugins [[codox "0.8.10"]
                              [lein-cljsbuild "1.0.3"]
-                             [com.cemerick/clojurescript.test "0.3.1"]
-                             [com.cemerick/austin "0.1.5-SNAPSHOT"]]
-                   :cljx {:builds [{:source-paths ["src/cljx"]
-                                    :output-path "target/classes"
-                                    :rules :clj}
-
-                                   {:source-paths ["src/cljx"]
-                                    :output-path "target/classes"
-                                    :rules :cljs}
-
-                                   {:source-paths ["test/cljx"]
-                                    :output-path "target/test-classes"
-                                    :rules :clj}
-
-                                   {:source-paths ["test/cljx"]
-                                    :output-path "target/test-classes"
-                                    :rules :cljs}]}
-
-                   :aliases {"cleantest" ["do" "clean," "cljx" "once," "test," "cljsbuild" "test"]
-                             "publish" ["do" "clean," "cljx" "once," "deploy" "clojars"]}
-
-                   :cljsbuild {:test-commands {"phantom" ["phantomjs" :runner "target/testable.js"]
-                                               "node" ["node" :node-runner "target/testable.js"]}
+                             [com.cemerick/clojurescript.test "0.3.1"]]
+                   :codox {:language :clojurescript
+                           :include [forest.response forest.middleware forest.middleware.edn
+                                     forest.destructuring forest.route forest.coerce
+                                     arango.repository arango.fs arango.console arango.core]
+                           :output-dir "doc/0.2.0/"
+                           :src-dir-uri "http://github.com/arango-cljs/forest/blob/0.2.0/"
+                           :src-linenum-anchor-prefix "L"
+                           :defaults {:doc/format :markdown
+                                      :doc "FIXME: write docs"}}
+                   :cljsbuild {:test-commands {"node" ["node" :node-runner "target/testable.js"]}
                                :builds [{:id "dev"
-                                         :source-paths ["src-cljs" "src/cljs" "target/classes" "sample-app/dev"]
+                                         :source-paths ["src" "sample-app/src"]
                                          :compiler {:output-to "sample-app/app.js"
                                                     :optimizations :simple}}
                                         {:id "test"
-                                         :source-paths ["src/cljs" "target/classes" "target/test-classes"]
+                                         :source-paths ["src" "test"]
                                          ;; Running `cljsbuild <once|auto>` will trigger this test.
-                                         :notify-command ["phantomjs" :cljs.test/runner
-                                                          "target/testable.js"]
+                                         :notify-command ["node" :node-runner "target/testable.js"]
                                          :compiler {:output-to "target/testable.js"
                                                     :optimizations :simple}}]}}}
   )
