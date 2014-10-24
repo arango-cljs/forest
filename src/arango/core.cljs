@@ -12,9 +12,9 @@
 (def ^{:doc "A string representing ArangoDB version."}
   version (.-version internal))
 
-(def Foxx (js/require "org/arangodb/foxx"))
+(def ^:no-doc Foxx (js/require "org/arangodb/foxx"))
 
-(def Controller (.-Controller Foxx))
+(def ^:no-doc Controller (.-Controller Foxx))
 
 (defn start [routes & {:keys [url-prefix]}]
   (let [initial-app (->> (when url-prefix #js {:urlPrefix url-prefix})
