@@ -11,7 +11,8 @@
   "Apply a list of routes to a Foxx app."
   [app & handlers]
   (binding [*app* app]
-    (some #(% app) handlers)))
+    (doseq [f handlers]
+      (f app))))
 
 (defn routes
   "Create a Foxx handler by combining several handlers into one."
