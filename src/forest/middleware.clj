@@ -38,8 +38,9 @@
        (fn [routes# ~@middleware-args]
          (fn [app#]
            (routes# app#)
-           (binding [forest.route/*app* app#]
-             (.before app# ~main-function))
+           (.before app#
+                    (binding [forest.route/*app* app#]
+                      ~main-function))
            app#)))))
 
 (defmacro defmiddleware-after
@@ -54,8 +55,9 @@
        (fn [routes# ~@middleware-args]
          (fn [app#]
            (routes# app#)
-           (binding [forest.route/*app* app#]
-             (.after app# ~main-function))
+           (.after app#
+                   (binding [forest.route/*app* app#]
+                     ~main-function))
            app#)))))
 
 (defmacro defmiddleware-around
@@ -74,6 +76,7 @@
        (fn [routes# ~@middleware-args]
          (fn [app#]
            (routes# app#)
-           (binding [forest.route/*app* app#]
-             (.around app# ~main-function))
+           (.around app#
+                    (binding [forest.route/*app* app#]
+                      ~main-function))
            app#)))))

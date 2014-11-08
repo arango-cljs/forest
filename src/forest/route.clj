@@ -30,10 +30,12 @@
                  :HEAD   '.head
                  :PATCH  '.patch
                  :ANY    `any)]
-    `(fn [app#] (~action app# ~uri
-                         (expand-handler ~(extract-uri-params uri)
-                                         ~request-destructuring
-                                         ~@content)))))
+    `(fn [app#]
+       (~action app# ~uri
+                (expand-handler ~(extract-uri-params uri)
+                                ~request-destructuring
+                                (binding [forest.route/*app* app#]
+                                  ~@content))))))
 
 (defmacro GET
   "Generate a GET route."
