@@ -1,4 +1,4 @@
-(ns arango.repository
+(ns forest.repository
   (:require [arango.console :refer [info warn error]]
             [arango.core :refer [Foxx]]
             [schema.core :as s :refer [validate]]
