@@ -1,6 +1,6 @@
 (ns foxx-cljs.route-test
   (:require-macros
-   [forest.destructuring
+   [forest.route.destructuring
     :refer [with-uri-params with-request-destructuring]])
   (:require [clojure.string :as str]
             [forest.response :as route :refer [edn response]]

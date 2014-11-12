@@ -1,6 +1,6 @@
-(ns forest.destructuring-test
+(ns forest.route.destructuring-test
   (:require [clojure.string :as string]
-            [forest.destructuring :refer :all]
+            [forest.route.destructuring :refer :all]
             [clojure.test :refer [is deftest testing run-tests]]))
 
 (deftest uri-param-bindings-test
