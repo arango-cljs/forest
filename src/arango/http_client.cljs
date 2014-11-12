@@ -10,6 +10,9 @@
     - `method`: can be one of these strings: GET, POST, PUT, DELETE, MOVE,
   PATCH, HEAD.
 
-    - `headers`: a JSON object represents pairs of request headers."}
+    - `headers`: a JSON object represents pairs of request headers.
+
+  Returns a JSON object with these keys: `headers`, `body`, `code` and `message`.
+  A success request will return `200` for `code` and `OK` for `message`."}
 
   request (.-download internal))
