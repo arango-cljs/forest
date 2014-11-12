@@ -1,5 +1,5 @@
 (ns forest.middleware.edn
-  (:require [forest.destructuring :refer [lookup-attribute keyword->destructurer]]))
+  (:require [forest.route.destructuring :refer [lookup-attribute keyword->destructurer]]))
 
 (defn destructure-edn-parameters
   "Destructures binding forms that are bound to :edn-parameters

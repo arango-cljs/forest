@@ -1,4 +1,4 @@
-(ns forest.destructuring
+(ns forest.route.destructuring
   "Destructuring `request` JSON object using Clojure syntax."
   (:require [clojure.string :as string]
             [clojure.tools.macro :as macro]))

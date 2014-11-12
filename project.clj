@@ -17,7 +17,7 @@
                              [com.cemerick/clojurescript.test "0.3.1"]]
                    :codox {:language :clojurescript
                            :include [forest.response forest.middleware forest.middleware.edn
-                                     forest.destructuring forest.route forest.coerce
+                                     forest.route.destructuring forest.route forest.coerce
                                      arango.repository arango.fs arango.console arango.core arango.http-client]
                            :output-dir "doc/0.2.0/"
                            :src-dir-uri "http://github.com/arango-cljs/forest/blob/0.2.0/"

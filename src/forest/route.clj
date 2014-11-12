@@ -1,6 +1,6 @@
 (ns forest.route
   (:require [clojure.tools.macro :as macro]
-            [forest.destructuring
+            [forest.route.destructuring
              :refer [extract-uri-params with-uri-params
                      with-request-destructuring]]))
 
