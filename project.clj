@@ -8,7 +8,7 @@
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.clojure/clojurescript "0.0-2371"]
                  [org.clojure/core.async "0.1.303.0-886421-alpha"]
-                 [prismatic/schema "0.3.1"]]
+                 [prismatic/schema "0.3.2"]]
   :jar-exclusions [#"sample-app"]
   :profiles {:dev {:dependencies [[com.cemerick/clojurescript.test "0.3.1"]
                                   [codox-md "0.2.0" :exclusions [org.clojure/clojure]]]
