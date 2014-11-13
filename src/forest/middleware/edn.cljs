@@ -1,7 +1,6 @@
 (ns forest.middleware.edn
   (:require [cljs.reader :refer [read-string]]
-            [arango.console :refer [info]]
-            [forest.route :refer [*app*]])
+            [arango.console :refer [info]])
   (:require-macros [forest.middleware :refer [defmiddleware-before]]))
 
 (defn edn-request?
