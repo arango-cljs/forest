@@ -16,12 +16,15 @@ between Clojure (in application context) and Javascript (to store in database).
 - [x] A [Compojure](https://github.com/weavejester/compojure/)-inspired syntax
 to define routes with ease.
 
-- [ ] A simple authentication middleware.
+# Todos
 
-- [ ] Macros to automatically generate both API server/client libraries based on
-collection data types' schemas.
+- [ ] Helper for rendering [Om](https://github.com/swannodette/om) components on server side.
 
-Please see [Tutorial](https://github.com/arango-cljs/arango-cljs/wiki/Tutorial), visit [API]()
+- [ ] Utilize [transducers](http://clojure.org/transducers) in Forest's collection API.
+
+- [ ] Implement full [Ring SPEC](https://github.com/mmcgrana/ring/blob/master/SPEC)
+
+Please visit [API](https://arango-cljs.github.io/forest/0.2.0/index.html)
 and have a look at the [sample application](sample-app/dev/app.cljs) for details.
 
 ## License
