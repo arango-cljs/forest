@@ -1,4 +1,4 @@
-# Forest - a cozy home for (ArangoDB) Foxx applications.
+# "For REST" - a cozy home for (ArangoDB) Foxx applications.
 
 Write scalable, database-ready APIs and apps in Clojurescript with ease.
 
