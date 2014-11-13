@@ -16,7 +16,7 @@
                              [lein-cljsbuild "1.0.3"]
                              [com.cemerick/clojurescript.test "0.3.1"]]
                    :codox {:language :clojurescript
-                           :include [forest.response forest.middleware forest.middleware.edn
+                           :include [forest.response forest.middleware forest.middleware.edn forest.middleware.powered-by
                                      forest.route.destructuring forest.route forest.coerce
                                      forest.repository arango.fs arango.console arango.core arango.http-client]
                            :output-dir "doc/0.2.0/"
